@@ -81,6 +81,7 @@ Route::group(['middleware' => ['web','CheckAuth'], 'namespace' => 'Admin\Ylxcx']
     Route::get('admin/hospital', 'ArticleController@hospital');
     Route::get('admin/doctorList', 'ArticleController@doctorList');
     Route::get('admin/doctorInfo/{id}', 'ArticleController@doctorInfo')->where('id', '[0-9]+');
+    Route::post('admin/upload', 'ArticleController@doctorList');
 
     //权限管理
     Route::get('admin/auth', 'UsersController@auth');

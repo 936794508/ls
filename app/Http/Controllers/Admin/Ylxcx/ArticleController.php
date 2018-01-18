@@ -27,7 +27,7 @@ class ArticleController extends Controller
     public function hospital(){
         $model = new ArticleModel();
         $article = $model->detail($this->hospitalId);
-        return view('admin.ylxcx.article.hospital', ['hospital'=>$article['data']]);
+        return view('admin.ylxcx.article.hospital', ['Info'=>$article['data']]);
     }
 
     /**
@@ -49,9 +49,12 @@ class ArticleController extends Controller
      * 医生个人介绍
      * @Id 介绍文章Id
      * */
-    public function doctorInfo(Request $request){
+    public function doctorInfo($id){
         $model = new ArticleModel();
-        return $model->detail($request->input(['Id']));
+        $doctorInfo =  $model->detail($id);
+        return view('admin.ylxcx.article.doctor', [
+            'Info'=>$doctorInfo['data'],
+        ]);
     }
 
     /**
@@ -61,7 +64,10 @@ class ArticleController extends Controller
      * */
     public function newsList(Request $request){
         $model = new ArticleModel();
-        return $model->show($request, false, $this->newsClassType);
+        $List = $model->show($request, false, $this->newsClassType);
+        return view('admin.ylxcx.article.doctor', [
+            'List'=>$List['data'],
+        ]);
     }
 
     /**

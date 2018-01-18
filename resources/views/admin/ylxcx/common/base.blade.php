@@ -11,6 +11,7 @@
     <script type="text/javascript" src="{{URL::asset('/js/swiper.min.js')}}"></script>
     <script src="{{URL::asset('/layui-v2.1.6/layui.js')}}" charset="utf-8"></script>
     <script type="text/javascript" src="{{URL::asset('/js/xadmin.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('/js/wxParse/showdown1.js')}}"></script>
 
 </head>
 <body>

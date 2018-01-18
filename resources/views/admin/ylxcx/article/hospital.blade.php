@@ -2,62 +2,62 @@
 @section("index")
     <div class="x-body">
         <form class="layui-form">
-          <div class="layui-form-item">
-              <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>标题
-              </label>
-              <div class="layui-input-inline">
-                  <input type="hidden" name="Id" value="{{ $hospital->Id }}">
-                  <input type="text" id="username" name="username" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="{{ $hospital->title }}">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>作者
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="username" name="username" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="{{ $hospital->author }}">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>简介
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="phone" name="phone" required="" lay-verify="phone"
-                  autocomplete="off" class="layui-input" value="{{ $hospital->abstract }}">
-              </div>
-          </div>
+            <div class="layui-form-item">
+                <label for="title" class="layui-form-label">
+                    <span class="x-red">*</span>标题
+                </label>
+                <div class="layui-input-inline">
+                    <input type="hidden" name="Id" value="{{ $Info->Id }}">
+                    <input type="text" id="title" name="title" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" value="{{ $Info->title }}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="author" class="layui-form-label">
+                    <span class="x-red">*</span>作者
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="author" name="author" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" value="{{ $Info->author }}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="abstract" class="layui-form-label">
+                    <span class="x-red">*</span>简介
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="abstract" name="abstract" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" value="{{ $Info->abstract }}">
+                </div>
+            </div>
 
-          {{--<div class="layui-form-item">
-              <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>配送物流
-              </label>
-              <div class="layui-input-inline">
-                  <select id="shipping" name="shipping" class="valid">
-                    <option value="shentong">申通物流</option>
-                    <option value="shunfeng">顺丰物流</option>
-                  </select>
-              </div>
-          </div>--}}
-          <div class="layui-form-item layui-form-text">
-              <label for="desc" class="layui-form-label">
-                  内容
-              </label>
-              <div class="layui-input-block">
-                  <textarea placeholder="请输入内容" id="desc" name="desc" class="layui-textarea">{{ $hospital->content }}</textarea>
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_repass" class="layui-form-label">
-              </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  增加
-              </button>
-          </div>
-      </form>
+            {{--<div class="layui-form-item">
+                <label for="username" class="layui-form-label">
+                    <span class="x-red">*</span>配送物流
+                </label>
+                <div class="layui-input-inline">
+                    <select id="shipping" name="shipping" class="valid">
+                      <option value="shentong">申通物流</option>
+                      <option value="shunfeng">顺丰物流</option>
+                    </select>
+                </div>
+            </div>--}}
+            <div class="layui-form-item layui-form-text">
+                <label for="content" class="layui-form-label">
+                    内容
+                </label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入内容" id="content" name="content" class="layui-textarea">{{ $Info->content }}</textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button  class="layui-btn" lay-filter="add" lay-submit="">
+                    增加
+                </button>
+            </div>
+        </form>
     </div>
     <script>
         layui.use(['form','layer'], function(){
