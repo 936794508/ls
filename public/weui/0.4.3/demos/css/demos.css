@@ -1,0 +1,128 @@
+body, html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1488511641473'); /* IE9*/
+  src: url('iconfont.eot?t=1488511641473#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1488511641473') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1488511641473') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1488511641473#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-folder:before { content: "\e6a1"; }
+.ls_weui_cells{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 16rem;
+  margin: 0;
+  text-align: left;
+}
+.goprev{
+  position: absolute;
+  z-index: 500;
+  bottom: 0;
+  width: 100%;
+}
+.weui_grid_4 {
+  width: 25%;
+}
+
+#short_btn{
+  width:65%;
+  margin:0 auto 0 auto;
+}
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+.swiper-container {
+  width: 100%;
+  height: 250px;
+}
+
+.swiper-container img {
+  display: block;
+  width: 100%;
+}
+.ls_cricle_img{
+  border-radius: 50%;
+}
+.one_level{
+  padding: 10px;
+  border-bottom:1px solid #FAFAFA;
+  text-align: center;
+  line-height: 30px;
+}
+.one_level_back{
+  background: #ffffff;
+  width:25%;
+  height:100%;
+  float: left;
+  margin-right: 1%;
+  margin-bottom: 0;
+}
+.one_level_gray{
+  background: #EDEDED;
+}
+.bottom_5px{
+  margin-bottom: 5px;
+}
+.ls_class_info{
+  background: #ffffff;
+  width: 48%;
+  height:100%;
+  float: right;
+  margin-bottom: 0;
+}
+.ls_class_price{
+  float: right;
+  color: #ff0000;
+}
+.ls_color_gray{
+  color: gray;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>列表查看</title>
+    <link rel="stylesheet" href="{{URL::asset('/layui-v2.1.6/css/layui.css')}}">
+</head>
+<body>
+<hr>
+<table class="layui-table" id="test" lay-filter="demo">
+
+</table>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-mini" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+</script>
+
+<script src="{{URL::asset('/layui-v2.1.6/layui.js')}}"></script>
+<script>
+    layui.use(['laypage', 'layer', 'table'], function(){
+        var laypage = layui.laypage; //分页
+        layer = layui.layer //弹层
+                ,table = layui.table;
+
+
+        //执行一个 table 实例
+        table.render({
+            elem: '#test'
+            ,height: 500
+            ,url: 'http://www.appoint.com/admin/userInfo' //数据接口
+            ,page: true //开启分页
+            ,limit: 10 //开启分页
+            ,cols: [[ //表头
+                {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'nickname', title: '用户名', width:80}
+                ,{field: 'user_mobile', title: '手机号', width:160, sort: true}
+                ,{field: 'role_name', title: '级别', width: 100}
+                ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
+            ]]
+        });
+        //监听工具条
+        table.on('tool(demo)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                    ,layEvent = obj.event; //获得 lay-event 对应的值
+            if(layEvent === 'detail'){
+                layer.msg('查看');
+            } else if(layEvent === 'del'){
+                layer.confirm('该操作无法恢复,确定删除？', function(index){
+                    obj.del(); //删除对应行（tr）的DOM结构
+                    layer.close(index);
+                    //向服务端发送删除指令
+                });
+            } else if(layEvent === 'edit'){
+                console.log(data.id);
+                layer.msg('编辑');
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/*重置插件样式*/
+.swipslider{padding-top:0;}
+
+/*背景颜色*/
+html,
+body{background:#3f99bc;}
+
+/*主体内容*/
+.container{width:100%;max-width:750px;margin:0 auto;}
+.content{width:100%;height:46rem;background:url(../img/hall/container-bg.png) no-repeat center;background-size:100% auto;}
+.item{width:97%;height:auto;margin:0 auto ;
+	padding-top:3rem;}
+.description{width:24%;position:absolute;top:34rem;left:50%;margin-left:-12%;font:1.2rem "microsoft yahei";}
+.description span{display:block;width:100%;text-align:center;}
+.description span i{font-style:normal;}
+.go{width:135px;display:block;position: absolute;
+	z-index:999;margin-left:-68px;left:50%;}
+.downloadbtn{width:80%;height:auto;margin:0 auto;
+	}
+.friend-box{width:100%;height:3.6rem;background:#277ec0;color:#fff;position:relative;}
+.flbox{float:left;}
+.portrait{display:inline-block;width:24%;padding-top:0.4rem;}
+.icon{width:29%;height:auto;float:left;border-radius:50%;}
+.icon:nth-child(1){margin-left:30%;}
+.icon:nth-child(2),
+.icon:nth-child(3){margin-left:-17%;}
+.name{font:1.2rem/3.6rem "DFPHaiBaoW12";float:left;}
+.number{font:1.2rem/3.6rem "PingFang";float:right;margin-right:4%;padding-right:2rem;background:url(../img/hall/flow.png) no-repeat right;background-size:14% auto;}
+.more{width:94%;height:16rem;margin:1rem auto 0;background:url(../img/hall/hotgame.png) no-repeat center;background-size:100% auto;border-radius:5px;}
+.more-title{text-align:center;padding-top:4rem;color:#fff;font-size:2.5rem;}
+.slogan{text-align:center;color:#fff;padding-top:1.5rem;}
+.slogan i{display:inline-block;}
+.gobtn{display:block;width:25%;height:2.5rem;line-height: 2.5rem;color:#fad202;border:1px solid #fad202;border-radius:10px;text-align:center;margin:0.8rem auto 0;}
+.people{width:100%;height:auto;margin:0 auto;}
+.tips {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index:99999;
+	/*  background-image: url(../img/details/tips-link.png);
+      background-repeat: no-repeat;
+      background-position: top right;*/
+	background-color: rgba(0, 0, 0, 0.66);
+	background-size: 67% auto;
+}
+.tip{
+	width:67%;
+	height:auto;
+	position: fixed;
+	top:0;
+	right:0;
+	z-index:999999;
+}
+
+/*分页按钮*/
+.swiper-button-prev{
+	height:4rem;
+	background: url("../img/hall/left.png") no-repeat center;
+	background-size:100% auto;
+}
+.swiper-button-next{
+	height:4rem;
+	background: url("../img/hall/right.png") no-repeat center;
+	background-size:100% auto;
+}
+/*字体*/
+@font-face{font-family:DFPHaiBaoW12;src:url(../font/DFPHaiBaoW12-Re.ttf);}
+@media(min-width:320px){
+	.content{background-position:top left;height:35rem;}
+	.description{width:30%;top:26.5rem;margin-left:-15%;}
+	.go{top:31.5rem;}
+	.portrait{padding-top:0.7rem;}
+	.people{margin-top:-1.5rem;}
+	.slogan{padding-top:0.8rem;}
+}
+
+@media (min-width: 325px) {
+	.content{background-position:top left;height:40rem;}
+	.description{width:30%;top:30rem;margin-left:-15%;}
+	.go{top:35.5rem;}
+	.portrait{padding-top:0.7rem;}
+	.people{margin-top:-1.5rem;}
+	.slogan{padding-top:0.8rem;}
+
+}
+@media(min-width:375px){
+	.content{height:46rem;}
+	.description{width:26%;top:32rem;left:50%;margin-left:-12%;}
+	.go{top:37.5rem;}
+	.portrait{padding-top:0.4rem;}
+	.people{margin-top:-1.5rem;}
+	.more-title{padding-top:3rem;}
+	.slogan{padding-top:1rem;}
+}
+@media(min-width:414px){
+	.description{top:34.5rem;}
+	.go{top:41.5rem;}
+	.portrait{padding-top:0.4rem}
+}

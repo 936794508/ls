@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Ylxcx;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class IndexController extends Controller
+{
+    //
+    public function Index(){
+        return view('admin.ylxcx.common.index');
+    }
+
+    public function Welcome(){
+        return view('admin.ylxcx.index.Welcome');
+    }
+}

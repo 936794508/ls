@@ -1,0 +1,75 @@
+.container{width:100%;max-width:750px;margin:0 auto;background:url("../img/index/entrance.png") no-repeat center;background-size:100% auto;}
+.title{width:92%;height:auto;float:right;margin-top:2rem;display:block;}
+.content{width:90%;height:39.25rem;position:absolute;top:13rem;left:45%;margin-left:-43%;background:url("../img/index/content.png") no-repeat;background-size:100% auto;}
+.content input[type=text]{padding-left:10px;}
+.name-box,
+.mobile-box{width:65%;height:4.6rem;margin:0 auto;background:#fff;margin-top:8rem;border-radius:7px;}
+.mobile-box{margin-top:2rem;}
+.name,
+.mobile{width:100%;height:4.6rem;font-size:1.7rem;line-height:4.6rem;border-radius:7px;}
+.send{display:block;margin-top:6rem;height:auto;}
+.btn{width:75%;height:auto;position:absolute;left:50%;margin-left:-35%;}
+.flow-box{margin-top:18rem;}
+.flow{text-align:left;font:1.4rem "microsoft yahei ";color:#fff;padding-left:2rem;}
+.flow-des{
+    text-align:left;font:1.4rem "microsoft yahei ";color:#fff;padding-left:2rem;
+    height:4rem;overflow-y: auto;
+}
+/*模态框*/
+.mask{
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.success-box{
+    width: 87%;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    margin-left: -41%;
+    z-index: 999;
+    display: none;
+
+}
+.success{
+    width: 100%;
+    height: auto;
+    margin:2.5rem auto 0;
+
+}
+.suc-btn{
+    width: 38%;
+    height: auto;
+    margin:0 auto;
+}
+
+@media(min-width:320px){
+    .flow-box{
+        margin-top: 14rem;
+    }
+}
+@media(min-width: 325px){
+    .flow-box{
+        margin-top: 18rem;
+    }
+}
+@media(min-width: 375px){
+    .flow-box{
+        margin-top: 19.5rem;
+    }
+    .flow{
+        padding-left: 2.5rem;
+    }
+}
+@media(min-width:414px){
+    .content{height:42.5rem;}
+    .flow-box{
+        margin-top: 23.5rem;
+    }
+    .flow{
+        padding-left: 3rem;
+    }
+}
