@@ -42,6 +42,14 @@ Route::group(['namespace' => 'Home\Ylxcx'], function(){
     Route::get('ylxcx/navigator', 'ArticleController@navigator');
     //案例
     Route::get('ylxcx/example', 'ArticleController@example');
+    #user
+    Route::get('ylxcx/userInfo/{id}', 'UserController@userInfo');
+
+
+
+
+
+
     //根据token查询
     Route::get('ylxcx/getUser', 'LoginController@getUserByToken');
 
