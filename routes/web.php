@@ -44,8 +44,8 @@ Route::group(['namespace' => 'Home\Ylxcx'], function(){
     Route::get('ylxcx/example', 'ArticleController@example');
     #user
     Route::get('ylxcx/userInfo/{id}', 'UserController@userInfo');
-
-
+    #saveUserInfo
+    Route::any('ylxcx/saveUserInfo', 'UserController@saveUserInfo');
 
 
 

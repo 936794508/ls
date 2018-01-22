@@ -74,7 +74,7 @@ class LoginController extends Controller
      * 验证token
      * */
     public function checkToken(){
-
+        return $this->makeToken(1);
     }
 
 
