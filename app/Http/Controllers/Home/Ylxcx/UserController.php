@@ -18,4 +18,5 @@ class UserController extends Controller
         dd($info);
     }
 
+
 }
