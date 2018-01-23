@@ -17,7 +17,12 @@ class UserController extends Controller
         $data = $request->all();
         $userModel = new User();
         $info = $userModel->getUserInfoByToken($data['token']);
-        return apiReturn($info);
+        //token是否不存在或错误
+        if($info != false){
+            return apiReturn($info);
+        }else{
+            return apiReturn($info, '404', 'token错误或者不存在');
+        }
     }
 
     /**
@@ -28,6 +33,7 @@ class UserController extends Controller
         $data = $request->all();
         $userModel = new User();
         $id = $userModel->getUserIdBytoken($data['token']);
+        //TODO 填充完整的数据
         $data = [
             'nickname' => 'liushuai',
         ];
@@ -37,8 +43,20 @@ class UserController extends Controller
         if($res){
             return apiReturn(false);
         }else{
-            return apiReturn(false, $code = '-1', $info = 'save failed');
+            return apiReturn(false, '-1', 'save failed');
         }
+    }
+
+    /**
+     * test
+     * @
+     * */
+    public function test(Request $request){
+        function foo(){
+            $var = "sd";
+        }
+        $aa = foo();
+        var_export($aa);
     }
 }
 

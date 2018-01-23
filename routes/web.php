@@ -28,24 +28,40 @@ Route::group(['namespace' => 'Home\Appoint'], function () {
 });
 
 Route::group(['namespace' => 'Home\Ylxcx'], function(){
+
     //医院介绍
     Route::get('ylxcx/hospital', 'ArticleController@hospital');
+
     //医生列表
     Route::get('ylxcx/doctorList', 'ArticleController@doctorList');
+
     //医生介绍
     Route::get('ylxcx/doctorInfo', 'ArticleController@doctorInfo');
+
     //新闻列表
     Route::get('ylxcx/newsList', 'ArticleController@newsList');
+
     //新闻详情
     Route::get('ylxcx/newsInfo', 'ArticleController@newsInfo');
+
     //院内详情
     Route::get('ylxcx/navigator', 'ArticleController@navigator');
+
     //案例
     Route::get('ylxcx/example', 'ArticleController@example');
-    #user
-    Route::get('ylxcx/userInfo/{id}', 'UserController@userInfo');
-    #saveUserInfo
+
+    /**
+     * 以下通过token定位用户id
+     * */
+
+    //获取用户信息
+    Route::get('ylxcx/userInfo', 'UserController@userInfo');
+
+    //保存用户信息
     Route::any('ylxcx/saveUserInfo', 'UserController@saveUserInfo');
+
+    //test
+    Route::any('ylxcx/test', 'UserController@test');
 
 
 

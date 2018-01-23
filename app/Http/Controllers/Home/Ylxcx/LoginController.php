@@ -81,6 +81,7 @@ class LoginController extends Controller
     /**
      * 获取token
      * @return string $token
+     * test code no use
      * */
     public function getUserByToken(Request $request){
         $token = $request->input('token');
@@ -90,7 +91,7 @@ class LoginController extends Controller
         $redis = app('redis.connection');
         $userId = $redis->get($token);
         if(!$userId){
-            return 'no user or the token is expired';
+            return 'no token or the token is expired';
         }
         $time = $redis->ttl($token);
         echo '有效期' . $time . 's 用户Id：';
@@ -114,3 +115,4 @@ class LoginController extends Controller
     }
 
 }
+#sc create subversion_service binpath= "C:\\Program Files (x86)\\Subversion\\bin\\svnserve.exe --service -r D:\\web\\appoint1" displayname= "Subversion Repository"  depend= Tcpip start= auto

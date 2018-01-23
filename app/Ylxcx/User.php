@@ -25,6 +25,9 @@ class User extends Model
      * */
     public function getUserInfoByToken($token){
         $id = $this->getUserIdBytoken($token);
+        if($id == false){
+            return false;
+        }
         return User::where('id', $id)->first();
     }
 
