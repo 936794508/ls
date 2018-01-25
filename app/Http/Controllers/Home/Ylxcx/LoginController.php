@@ -35,13 +35,13 @@ class LoginController extends Controller
             $sessionKey = $json->session_key;
             $userifo = new \WXBizDataCrypt(self::APPID, $sessionKey);
 
-            $errCode = $userifo->decryptData($encryptedData, $iv, $data );
+            $errCode = $userifo->decryptData($encryptedData, $iv, $data);
             file_put_contents('wxLoginInfo.txt', json_encode($data));
             if ($errCode == 0) {
                 //$data = '﻿﻿{"openId":"oes8F0UoNU5M9GT5ft8lW6Npkg50","nickName":"刘帅","gender":1,"language":"zh_CN","city":"Tongzhou","province":"Beijing","country":"China","avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKBoMA48Awebk27S3gbef5db9qnIe2Y8tqt54k3m7SKKNl9rwxRgMoXiaMO97QaiaNzspWz5yQ6HaYA/0","watermark":{"timestamp":1513300870,"appid":"wx9ceb210c3758accc"}}';
 
                 $wxData = json_decode($data);
-                $userInfo = DB::table('user')->where('openid', $wxData->openId)->first();
+                $userInfo = DB::table('users')->where('openid', $wxData->openId)->first();
 
                 //数据库中有此用户
                 if($userInfo){
@@ -55,9 +55,9 @@ class LoginController extends Controller
                         'country'       => $wxData->country,
                         'province'      => $wxData->province,
                         'city'          => $wxData->city,
-                        'add_time'      => time(),
+                        'created_time'  => time(),
                     );
-                    $userId = DB::table('user')->insertGetId($data);
+                    $userId = DB::table('users')->insertGetId($data);
                     $token = $this->makeToken($userId);
                 }
                 return apiReturn(array('token'=>$token));
@@ -116,3 +116,6 @@ class LoginController extends Controller
 
 }
 #sc create subversion_service binpath= "C:\\Program Files (x86)\\Subversion\\bin\\svnserve.exe --service -r D:\\web\\appoint1" displayname= "Subversion Repository"  depend= Tcpip start= auto
+
+#@echo off
+#"C:\Program Files (x86)\Subversion\bin\svn.exe" update "D:\web\appoint1" --username "qicunshang" --password "qicunshang"
