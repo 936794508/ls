@@ -94,15 +94,22 @@
                                 </a>
                             </li >
                             <li>
-                                <a _href="{{url('admin/example')}}">
+                                <a _href="{{ url('admin/articleList?'.http_build_query(['classId' => 8])) }}">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>案例列表</cite>
                                 </a>
                             </li >
                             <li>
-                                <a _href="{{url('admin/newsList')}}">
+                                <a _href="{{ url('admin/articleList?classType=2') }}">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>新闻列表</cite>
+                                </a>
+                            </li >
+
+                            <li>
+                                <a _href="{{ url('admin/articleList?classType=3') }}">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>院内导航</cite>
                                 </a>
                             </li >
                         </ul>

@@ -36,7 +36,7 @@ class ArticleModel extends Model
             })
             ->skip($skip)
             ->take($take)
-            ->get();
+            ->paginate();
         return apiReturn($articleList);
     }
 
@@ -97,5 +97,46 @@ class ArticleModel extends Model
             ->where('article.Id', $id)
             ->first();
         return apiReturn($articleInfo);
+    }
+
+
+    /**
+     * 文章列表页@取出classType下面所有文章
+     * @classId 文章分类，默认为0，即不取任何数据
+     * @classType  文章类型，为2时只取新闻类型的文章
+     * @page  页码
+     * @take  取出多少条数据
+     * */
+    public function showByclassType($request){
+        $data = $request->all();
+
+        //下面三个参数都是可选参数
+        $data['classId'] = isset($data['classId'])?$data['classId']:false;
+        $data['classType'] = isset($data['classType'])?$data['classType']:false;
+        $data['limit'] = isset($data['limit'])?$data['limit']:5;
+
+        //搜索数据库
+        $articleList = DB::table('article')
+            ->select('article.*', 'article_class.class_name')
+            ->leftJoin('article_class', 'article_class.Id', '=', 'article.class_id')
+            ->where(function($query) use($data) {
+                if ($data['classId']) {
+                    $query->where('article.class_id', '=', $data['classId']);
+                }
+            })
+            ->where(function($query) use($data) {
+                if ($data['classType']) {
+                    $query->where('article_class.class_type', '=', $data['classType']);
+                }
+            })
+            ->paginate($data['limit']);
+
+        //追加分页传参
+        $articleList->appends(array(
+            'classType' => $data['classType'],
+            'classId' => $data['classId'],
+            'limit' => $data['limit'],
+        ));
+        return $articleList;
     }
 }

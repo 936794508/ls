@@ -22,7 +22,8 @@
       <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <button class="layui-btn" onclick="x_admin_show('添加用户','./member-add.html',600,400)"><i class="layui-icon"></i>添加</button>
-        <span class="x-right" style="line-height:40px">共有数据：{{ $count }} 条</span>
+          <button class="layui-btn layui-btn-normal" onclick="refresh()"><i class="layui-icon">&#x1002;</i></button>
+        <span class="x-right" style="line-height:40px">共有数据：{{ $List->total() }} 条</span>
       </xblock>
       <table class="layui-table">
         <thead>
@@ -31,14 +32,14 @@
               <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
             <th>ID</th>
-            <th>姓名</th>
-            <th>录入人</th>
-            <th>照片</th>
+            <th>标题</th>
+            <th>作者</th>
+            <th>缩略图</th>
             <th>简介</th>
             <th>操作</th></tr>
         </thead>
         <tbody>
-          @foreach($doctorList as $v)
+          @foreach($List as $v)
             <tr>
               <td>
                 <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{$v->Id}}'><i class="layui-icon">&#xe605;</i></div>
@@ -49,7 +50,7 @@
               <td><img src="{{$v->image}}" alt="" width="100" height="100"></td>
               <td>{{$v->abstract}}</td>
               <td class="td-manage">
-                <a title="编辑"  onclick="x_admin_show('编辑','{{url('admin/doctorInfo')}}/{{$v->Id}}',600,400)" href="javascript:;">
+                <a title="编辑"  onclick="x_admin_show('编辑','{{url('admin/doctorInfo')}}/{{$v->Id}}',null,null)" href="javascript:;">
                   <i class="layui-icon">&#xe642;</i>
                 </a>
                 <a title="删除" onclick="member_del(this,'{{$v->Id}}')" href="javascript:;">
@@ -61,14 +62,7 @@
         </tbody>
       </table>
       <div class="page">
-        <div>
-          <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
-          <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
-          <a class="next" href="">&gt;&gt;</a>
-        </div>
+        {{ $List->links() }}
       </div>
 
     </div>
@@ -132,6 +126,10 @@
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
       }
+
+        function refresh(){
+            location.reload();
+        }
     </script>
     <script>var _hmt = _hmt || []; (function() {
         var hm = document.createElement("script");

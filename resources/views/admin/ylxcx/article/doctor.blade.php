@@ -59,7 +59,7 @@
                   <!-- 加载编辑器的容器 -->
                   <script id="container" name="content" type="text/plain">{{ $Info->content }}</script>
               </div>
-          </div>0
+          </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>

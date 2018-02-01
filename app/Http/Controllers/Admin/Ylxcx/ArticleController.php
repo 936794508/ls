@@ -6,6 +6,7 @@ use App\Ylxcx\ArticleModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
@@ -40,7 +41,7 @@ class ArticleController extends Controller
         $doctorList = $model->show($request, $this->doctorListClassId);
         $count = DB::table('article')->where('class_id', $this->doctorListClassId)->count();
         return view('admin.ylxcx.article.doctorList', [
-            'doctorList'=>$doctorList['data'],
+            'List'=>$doctorList['data'],
             'count' => $count,
         ]);
     }
@@ -98,4 +99,51 @@ class ArticleController extends Controller
         $model = new ArticleModel();
         return $model->show($request, $this->exampleClassId);
     }
+
+    /**
+     * 查看任意文章列表
+     * @classType  文章类型
+     * @classId  文章类别可选
+     * @limit 取出条数默认10条
+     * */
+    public function articleList(Request $request){
+        $model = new ArticleModel();
+        $List =  $model->showByclassType($request);
+        return view('admin.ylxcx.article.doctorList', [
+            'List'=> $List,
+        ]);
+    }
+
+    /**
+     * 查看任意文章详情
+     * @Id 文章Id
+     * */
+    public function articleInfo(Request $request){
+        $input = $request->all();
+
+        //验证传参
+        $validate = Validator::make($input, [
+            'Id' => 'required'
+        ]);
+        if($validate->fails()){
+            return apiReturn(false, '100001', '请检查参数');
+        }
+
+        //获取模型返回的数据
+        $model = new ArticleModel();
+        $doctorInfo =  $model->detail($input['Id']);
+        return view('admin.ylxcx.article.doctor', [
+            'Info'=>$doctorInfo['data'],
+        ]);
+    }
+
+    /**
+     * 新建文章@需要带参数classId
+     * @classId 文章类别
+     *
+     * */
+    public function createAritcle(Request $request){
+        //主要用于展示添加文章的界面，同时给定classId的选项
+    }
+
 }

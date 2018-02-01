@@ -28,7 +28,6 @@ Route::group(['namespace' => 'Home\Appoint'], function () {
 });
 
 Route::group(['namespace' => 'Home\Ylxcx'], function(){
-
     //医院介绍
     Route::get('ylxcx/hospital', 'ArticleController@hospital');
 
@@ -61,7 +60,7 @@ Route::group(['namespace' => 'Home\Ylxcx'], function(){
     Route::any('ylxcx/saveUserInfo', 'UserController@saveUserInfo');
 
     //test
-    Route::any('ylxcx/test', 'UserController@test');
+    Route::any('ylxcx/dp', 'UserController@printWays');
 
 
 
@@ -101,7 +100,14 @@ Route::group(['middleware' => ['web','CheckAuth'], 'namespace' => 'Admin\Ylxcx']
     Route::get('admin/user/editPassword', 'UsersController@editPassword');
     Route::post('admin/user/savePassword', 'UsersController@savePassword');
 
-    //文章管理
+    /**
+     * 文章管理
+     * */
+    //文章列表
+    Route::any('admin/articleList', 'ArticleController@articleList');
+    //文章详情
+    Route::any('admin/articleInfo', 'ArticleController@articleInfo');
+
     Route::get('admin/hospital', 'ArticleController@hospital');
     Route::get('admin/doctorList', 'ArticleController@doctorList');
     Route::get('admin/doctorInfo/{id}', 'ArticleController@doctorInfo')->where('id', '[0-9]+');
