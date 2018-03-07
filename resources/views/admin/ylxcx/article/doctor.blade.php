@@ -7,9 +7,9 @@
                   <span class="x-red">*</span>标题
               </label>
               <div class="layui-input-inline">
-                  <input type="hidden" name="Id" value="{{ $Info->Id }}">
+                  <input type="hidden" name="Id" value="{{ $Info->Id or '' }}">
                   <input type="text" id="title" name="title" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="{{ $Info->title }}">
+                  autocomplete="off" class="layui-input" value="{{ $Info->title or '' }}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -18,16 +18,25 @@
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="author" name="author" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="{{ $Info->author }}">
+                  autocomplete="off" class="layui-input" value="{{ $Info->author or '' }}">
               </div>
           </div>
+            <div class="layui-form-item">
+                <label for="author" class="layui-form-label">
+                    <span class="x-red">*</span>文章分类
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="author" name="author" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" value="{{ $Info->classId or '' }}">
+                </div>
+            </div>
           <div class="layui-form-item">
               <label for="abstract" class="layui-form-label">
                   <span class="x-red">*</span>简介
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="abstract" name="abstract" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="{{ $Info->abstract }}">
+                  autocomplete="off" class="layui-input" value="{{ $Info->abstract or '' }}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -57,7 +66,7 @@
               </label>
               <div class="layui-input-block">
                   <!-- 加载编辑器的容器 -->
-                  <script id="container" name="content" type="text/plain">{{ $Info->content }}</script>
+                  <script id="container" name="content" type="text/plain">{{ $Info->content or '' }}</script>
               </div>
           </div>
           <div class="layui-form-item">

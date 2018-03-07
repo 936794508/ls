@@ -66,11 +66,13 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($serverInfo as $item)
                 <tr>
-                    <th width="30%">服务器计算机名</th>
-                    <td><span id="lbServerName">http://127.0.0.1/</span></td>
+                    <th width="30%">{{ $item['name'] }}</th>
+                    <td>{{ $item['value'] }}</td>
                 </tr>
-                <tr>
+                @endforeach
+                {{--<tr>
                     <td>服务器IP地址</td>
                     <td>192.168.1.1</td>
                 </tr>
@@ -157,7 +159,7 @@
                 <tr>
                     <td>当前系统用户名 </td>
                     <td>NETWORK SERVICE</td>
-                </tr>
+                </tr>--}}
                 </tbody>
             </table>
         </div>

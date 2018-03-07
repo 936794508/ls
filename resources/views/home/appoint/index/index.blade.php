@@ -23,7 +23,7 @@
     <p class="weui_grid_label"> 体检查询 </p>
 </a>
 
-<a class="weui_grid js_grid" href="/appoint/kf">+
+<a class="weui_grid js_grid" href="/appoint/kf">
     <div class="weui_grid_icon">
         <img src="{{URL::asset('images/appoint/ui/phone.png')}}" alt="">
     </div>

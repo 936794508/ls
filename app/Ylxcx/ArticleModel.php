@@ -137,6 +137,7 @@ class ArticleModel extends Model
             'classId' => $data['classId'],
             'limit' => $data['limit'],
         ));
+
         return $articleList;
     }
 }

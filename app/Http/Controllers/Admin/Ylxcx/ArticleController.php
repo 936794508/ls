@@ -144,6 +144,24 @@ class ArticleController extends Controller
      * */
     public function createAritcle(Request $request){
         //主要用于展示添加文章的界面，同时给定classId的选项
+        $input = $request->all();
+        return view('admin.ylxcx.article.doctor');
     }
 
+    /**
+     * 测试-闭包
+     *
+     * */
+    public function test(Request $request){
+        $str = 'abcccdd';
+        echo str_replace('bc', 'cd', $str);
+        $num = 0;
+        $i = 2;
+        $one = function() use($num) {echo $num;};
+        $two = function() use(&$num) {echo $num;};
+        $num++;
+
+        $one();
+        $two();
+    }
 }

@@ -107,6 +107,9 @@ Route::group(['middleware' => ['web','CheckAuth'], 'namespace' => 'Admin\Ylxcx']
     Route::any('admin/articleList', 'ArticleController@articleList');
     //文章详情
     Route::any('admin/articleInfo', 'ArticleController@articleInfo');
+    Route::any('admin/createAritcle', 'ArticleController@createAritcle');
+    Route::any('admin/test', 'ArticleController@test');
+    Route::any('admin/getprime', 'ArticleController@getprime');
 
     Route::get('admin/hospital', 'ArticleController@hospital');
     Route::get('admin/doctorList', 'ArticleController@doctorList');
