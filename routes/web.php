@@ -49,6 +49,18 @@ Route::group(['namespace' => 'Home\Ylxcx'], function(){
     //案例
     Route::get('ylxcx/example', 'ArticleController@example');
 
+
+    /**
+     * 显示任意分类文章列表
+     * */
+    Route::get('ylxcx/article', 'ArticleController@articleList');
+
+    /**
+     * 显示任意文章详情
+     * */
+    Route::get('ylxcx/articleInfo', 'ArticleController@articleInfo');
+
+
     /**
      * 以下通过token定位用户id
      * */
@@ -61,8 +73,6 @@ Route::group(['namespace' => 'Home\Ylxcx'], function(){
 
     //test
     Route::any('ylxcx/dp', 'UserController@printWays');
-
-
 
 
     //根据token查询

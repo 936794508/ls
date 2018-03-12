@@ -88,4 +88,36 @@ class ArticleController extends Controller
         return $model->show($request, $this->exampleClassId);
     }
 
+
+
+    /**
+     * 查看任意文章列表
+     * @classType  文章类型
+     * @classId  文章类别可选
+     * @limit 取出条数默认10条
+     * */
+    public function articleList(Request $request){
+        $model = new ArticleModel();
+        return $model->show($request);
+    }
+
+    /**
+     * 查看任意文章详情
+     * @Id 文章Id
+     * */
+    public function articleInfo(Request $request){
+        $input = $request->all();
+
+        //验证传参
+        $validate = Validator::make($input, [
+            'Id' => 'required'
+        ]);
+        if($validate->fails()){
+            return apiReturn(false, '100001', '请检查参数');
+        }
+
+        //获取模型返回的数据
+        $model = new ArticleModel();
+        return $model->detail($input['Id']);
+    }
 }

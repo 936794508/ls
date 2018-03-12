@@ -15,10 +15,11 @@ class ArticleModel extends Model
      * @page  页码
      * @take  取出多少条数据
      * */
-    public function show($request, $classId, $classType=1){
+    public function show($request, $classId = false, $classType = false){
         $data = $request->all();
-        $data['classId'] = $classId;
-        $data['classType'] = $classType;
+        $data['classId'] = $data['classId']??$classId;
+        $data['classType'] = $data['classType']??$classType;
+        //dd($data);
         $skip = isset($data['page'])?($data['page']-1) * ($data['limit']):0;
         $take = isset($data['limit'])?$data['limit']:10;
         $articleList = DB::table('article')
@@ -36,7 +37,7 @@ class ArticleModel extends Model
             })
             ->skip($skip)
             ->take($take)
-            ->paginate();
+            ->get();
         return apiReturn($articleList);
     }
 
