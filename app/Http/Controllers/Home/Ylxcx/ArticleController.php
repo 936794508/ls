@@ -68,7 +68,7 @@ class ArticleController extends Controller
         return $model->detail($request->input(['Id']));
     }
 
-    /**
+    /**8
      * 院内导航
      * @page 页码
      * @limit 取出条数

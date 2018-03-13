@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Ylxcx;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class IndexController extends Controller
 {
@@ -14,6 +15,7 @@ class IndexController extends Controller
 
     public function Welcome(){
         //统计部分
+
 
         //服务器信息部分
         $severInfo = [
@@ -31,12 +33,19 @@ class IndexController extends Controller
         return view('admin.ylxcx.index.Welcome', ['serverInfo'=> $severInfo]);
     }
 
-    public function count(int $num) :int
+    /**
+     * Validator
+     *
+     * */
+    public function count(Request $request)
     {
-        $sum = 0;
-        for($initNum = 1;$initNum <= $num; $initNum++)
-            $sum += $initNum;
-        return $sum;
+        $params = $request->all();
+        $validate = Validator::make($params, [
+            'title' => 'required|int',
+        ]);
+        if($validate->fails()){
+            return $validate->errors()->all();
+        }
     }
 
 }

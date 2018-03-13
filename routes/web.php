@@ -88,20 +88,12 @@ Route::group(['namespace' => 'Home\Ylxcx'], function(){
     Route::get('ylxcx/wx_login', 'LoginController@wx');
 });
 
-Route::group(['namespace' => 'Admin\Ylxcx'], function(){
-    //登录
-    Route::get('admin', 'LoginController@login');
-    Route::get('admin/login_error', 'LoginController@error');
-    Route::post('admin/login/check', 'LoginController@check');
-    Route::get('admin/logout', 'LoginController@logout');
-    Route::get('admin/userInfo', 'UsersController@userInfo');
-});
-
 Route::group(['middleware' => ['web','CheckAuth'], 'namespace' => 'Admin\Ylxcx'], function(){
     //首页
     Route::get('admin/index', 'IndexController@index');
     Route::get('admin/welcome', 'IndexController@welcome');
     Route::get('admin/welcome.html', 'IndexController@welcome');
+    Route::get('admin/count', 'IndexController@count');
 
     //用户管理
     Route::get('admin/user', 'UsersController@index');
@@ -129,4 +121,15 @@ Route::group(['middleware' => ['web','CheckAuth'], 'namespace' => 'Admin\Ylxcx']
     //权限管理
     Route::get('admin/auth', 'UsersController@auth');
     Route::post('admin/saveAuth', 'UsersController@saveAuth');
+});
+
+
+Route::group(['middleware' => ['web'], 'namespace' => 'Admin\Ylxcx'], function(){
+
+    //登录
+    Route::get('admin', 'LoginController@login');
+    Route::get('admin/login_error', 'LoginController@error');
+    Route::post('admin/login/check', 'LoginController@check');
+    Route::get('admin/logout', 'LoginController@logout');
+    Route::get('admin/userInfo', 'UsersController@userInfo');
 });
